@@ -1,0 +1,443 @@
+.aad-flow {
+    --flow-width: 1px;
+    --flow-radius: 20px;
+
+    width: 100%;
+
+    padding: 18px;
+
+    background:
+        linear-gradient(180deg,
+            var(--flow-background-overlay),
+            transparent),
+        var(--flow-background);
+
+    border: 1px solid var(--flow-border);
+
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+
+    transition:
+        background-color var(--transition-theme),
+        border-color var(--transition-theme);
+}
+
+.aad-flow *,
+.aad-flow *::before,
+.aad-flow *::after {
+    box-sizing: border-box;
+}
+
+.aad-flow__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px 3px 16px;
+    border-bottom: 1px solid var(--flow-border);
+    color: var(--flow-header-text);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+}
+
+.aad-flow__status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.aad-flow__status-dot {
+    display: inline-block;
+
+    width: 6px;
+    height: 6px;
+
+    background: #00b090;
+
+    border-radius: 50%;
+
+    animation:
+        aad-flow-status-pulse
+        2s ease-out infinite;
+}
+
+.aad-flow__content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 70px minmax(0, 1fr) 70px minmax(0, 1fr) 70px minmax(0, 1fr);
+    align-items: center;
+    padding: 40px 14px;
+}
+
+.aad-flow-node {
+    --flow-color: #ffffff;
+    position: relative;
+    min-width: 0;
+    min-height: 96px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 18px;
+    background: var(--flow-node-bg);
+    border: var(--flow-width) solid var(--flow-node-border);
+    isolation: isolate;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.aad-flow-node.is-active {
+    background: var(--flow-node-bg-active);
+    box-shadow: 0 0 30px color-mix(in srgb, var(--flow-color) 15%, transparent);
+}
+
+.aad-flow-border {
+    position: absolute;
+    top: calc(var(--flow-width) * -1);
+    left: calc(var(--flow-width) * -1);
+    width: calc(100% + (var(--flow-width) * 2));
+    height: calc(100% + (var(--flow-width) * 2));
+    overflow: visible;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.aad-flow-border path {
+    fill: none;
+    stroke: var(--flow-color);
+    stroke-width: var(--flow-width);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0;
+    filter: drop-shadow(0 0 3px var(--flow-color));
+}
+
+.aad-flow-icon-box {
+    position: relative;
+    flex: 0 0 46px;
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    background: var(--flow-icon-bg);
+    /*border: 1px solid transparent;*/
+    border-radius: 10px;
+    color: var(--flow-icon-muted);
+    z-index: 2;
+    transition: color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.aad-flow-node.is-active .aad-flow-icon-box {
+    background: color-mix(in srgb, var(--flow-color) 20%, transparent);
+    color: var(--flow-color);
+    /*border-color: color-mix(in srgb,var(--flow-color) 50%,#2d2d2d);*/
+    /*box-shadow: 0 0 18px color-mix(in srgb, var(--flow-color) 15%, transparent);*/
+}
+
+.aad-flow-icon {
+    width: 35px;
+    height: 35px;
+    display: block;
+    fill: currentColor;
+    color: inherit;
+}
+
+.aad-flow-node__text {
+    position: relative;
+    min-width: 0;
+    z-index: 2;
+}
+
+.aad-flow-node__text strong {
+    display: block;
+    margin: 0;
+    color: var(--flow-text);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.aad-flow-node__text small {
+    display: block;
+    color: var(--flow-muted);
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.aad-flow-connector {
+    --connector-color: #ffffff;
+    position: relative;
+    width: 100%;
+    height: var(--flow-width);
+    background: var(--flow-node-border);
+    overflow: visible;
+}
+
+.aad-flow-connector__progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: var(--flow-width);
+    background: var(--connector-color);
+    box-shadow: 0 0 7px var(--connector-color);
+    opacity: 0;
+}
+
+.aad-flow-connector__particle {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    transform: translate(-50%, -50%);
+    background: var(--connector-color);
+    border-radius: 50%;
+    box-shadow: 0 0 5px var(--connector-color), 0 0 12px var(--connector-color);
+    opacity: 0;
+}
+
+.aad-flow-tablet-route {
+    display: none;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    pointer-events: none;
+}
+
+.aad-flow-tablet-route__base,
+.aad-flow-tablet-route__progress {
+    fill: none;
+    stroke-width: var(--flow-width);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
+}
+
+.aad-flow-tablet-route__base {
+    stroke: var(--flow-node-border);
+}
+
+.aad-flow-tablet-route__progress {
+    stroke: var(--connector-color);
+    filter: drop-shadow(0 0 3px var(--connector-color));
+    opacity: 0;
+}
+
+.aad-flow-tablet-route__particle {
+    fill: var(--connector-color);
+    filter: drop-shadow(0 0 5px var(--connector-color));
+    opacity: 0;
+}
+
+.aad-flow-node--wordpress {
+    --flow-color: #3858E9;
+}
+
+.aad-flow-connector--wordpress {
+    --connector-color: #3858E9;
+}
+
+.aad-flow-node--woocommerce {
+    --flow-color: #883EFF;
+}
+
+.aad-flow-connector--woocommerce {
+    --connector-color: #883EFF;
+}
+
+.aad-flow-node--n8n {
+    --flow-color: #ea4b71;
+}
+
+.aad-flow-connector--n8n {
+    --connector-color: #ea4b71;
+}
+
+.aad-flow-node--api {
+    --flow-color: #ff6d5a;
+}
+
+@media (min-width: 768px) and (max-width: 1080px) {
+    .aad-flow__content {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 96px minmax(0, 1fr);
+        grid-template-rows: auto 54px auto;
+        align-items: center;
+        padding: 40px 0;
+    }
+
+    .aad-flow-node {
+        z-index: 2;
+        gap: 10px;
+        padding: 14px;
+    }
+
+    .aad-flow-node--wordpress {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .aad-flow-node--woocommerce {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    .aad-flow-node--n8n {
+        grid-column: 3;
+        grid-row: 1;
+    }
+
+    .aad-flow-node--api {
+        grid-column: 3;
+        grid-row: 3;
+    }
+
+    .aad-flow-icon-box {
+        flex-basis: 40px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .aad-flow-icon {
+        width: 21px;
+        height: 21px;
+    }
+
+    .aad-flow-connector {
+        z-index: 1;
+    }
+
+    .aad-flow-connector--wordpress,
+    .aad-flow-connector--n8n {
+        width: var(--flow-width);
+        height: 54px;
+        justify-self: center;
+    }
+
+    .aad-flow-connector--wordpress {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .aad-flow-connector--n8n {
+        grid-column: 3;
+        grid-row: 2;
+    }
+
+    .aad-flow-connector--wordpress .aad-flow-connector__progress,
+    .aad-flow-connector--n8n .aad-flow-connector__progress {
+        width: var(--flow-width);
+        height: 0%;
+    }
+
+    .aad-flow-connector--wordpress .aad-flow-connector__particle,
+    .aad-flow-connector--n8n .aad-flow-connector__particle {
+        top: 0;
+        left: 50%;
+    }
+
+    .aad-flow-connector--woocommerce {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        pointer-events: none;
+    }
+
+    .aad-flow-connector--woocommerce>.aad-flow-connector__progress,
+    .aad-flow-connector--woocommerce>.aad-flow-connector__particle {
+        display: none;
+    }
+
+    .aad-flow-connector--woocommerce .aad-flow-tablet-route {
+        display: block;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .aad-flow {
+        padding: 20px;
+        border-radius: 38px;
+    }
+
+    .aad-flow-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .aad-flow-icon-box {
+        flex-basis: 60px;
+        width: 60px;
+        height: 60px;
+    }
+
+    .aad-flow__header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .aad-flow__content {
+        display: flex;
+        flex-direction: column;
+        padding: 28px 0 0 0;
+    }
+
+    .aad-flow-node {
+        width: 100%;
+        min-height: fit-content;
+        gap: 16px;
+    }
+
+    .aad-flow-connector {
+        width: var(--flow-width);
+        height: 30px;
+    }
+
+    .aad-flow-connector__progress {
+        width: var(--flow-width);
+        height: 0%;
+    }
+
+    .aad-flow-connector__particle {
+        top: 0;
+        left: 50%;
+    }
+
+}
+@keyframes aad-flow-status-pulse {
+
+    0% {
+        box-shadow:
+            0 0 6px rgba(0, 176, 144, 0.8),
+            0 0 0 0 rgba(0, 176, 144, 0.5);
+    }
+
+    70% {
+        box-shadow:
+            0 0 6px rgba(0, 176, 144, 0.8),
+            0 0 0 8px rgba(0, 176, 144, 0);
+    }
+
+    100% {
+        box-shadow:
+            0 0 6px rgba(0, 176, 144, 0.8),
+            0 0 0 0 rgba(0, 176, 144, 0);
+    }
+
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+    .aad-flow__status-dot {
+        animation: none;
+    }
+
+}

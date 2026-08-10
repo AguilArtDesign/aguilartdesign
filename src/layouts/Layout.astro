@@ -1,0 +1,112 @@
+---
+import "../styles/global.css";
+
+interface Props {
+    title?: string;
+    description?: string;
+}
+
+const {
+    title = "AguilArt Design — Soluciones sobre WordPress",
+    description = "AguilArt Design — WordPress, WooCommerce, automatizaciones con n8n e integraciones API."
+} = Astro.props;
+---
+
+<!doctype html>
+
+<html lang="es" data-theme="dark">
+
+    <head>
+
+        <meta charset="UTF-8" />
+
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+
+        <meta
+            name="description"
+            content={description}
+        />
+
+        <meta
+            name="theme-color"
+            content="#000000"
+        />
+
+        <title>{title}</title>
+
+
+        <!-- Theme initialization -->
+        <script is:inline>
+            (() => {
+                const STORAGE_KEY = "aguilart-theme";
+
+                try {
+                    const savedTheme = localStorage.getItem(STORAGE_KEY);
+
+                    const theme =
+                        savedTheme === "light"
+                            ? "light"
+                            : "dark";
+
+                    document.documentElement.dataset.theme = theme;
+
+                    const meta = document.querySelector(
+                        'meta[name="theme-color"]'
+                    );
+
+                    if (meta) {
+                        meta.setAttribute(
+                            "content",
+                            theme === "dark"
+                                ? "#000000"
+                                : "#ffffff"
+                        );
+                    }
+
+                } catch {
+                    document.documentElement.dataset.theme = "dark";
+                }
+            })();
+        </script>
+
+
+        <!-- Inter -->
+        <link
+            rel="preconnect"
+            href="https://fonts.googleapis.com"
+        />
+
+        <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossorigin
+        />
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+
+    </head>
+
+
+    <body>
+
+        <div
+            class="page-noise"
+            aria-hidden="true"
+        ></div>
+
+        <slot />
+
+
+        <script>
+            import "../scripts/theme.js";
+        </script>
+
+    </body>
+
+</html>

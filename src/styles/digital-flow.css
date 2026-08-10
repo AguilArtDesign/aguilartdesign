@@ -82,6 +82,7 @@
     padding: 18px;
     background: var(--flow-node-bg);
     border: var(--flow-width) solid var(--flow-node-border);
+    border-radius: var(--flow-radius);
     isolation: isolate;
     transition: background 0.3s ease, box-shadow 0.3s ease;
 }
@@ -95,8 +96,11 @@
     position: absolute;
     top: calc(var(--flow-width) * -1);
     left: calc(var(--flow-width) * -1);
+    display: block;
     width: calc(100% + (var(--flow-width) * 2));
     height: calc(100% + (var(--flow-width) * 2));
+    max-width: none;
+    border-radius: inherit;
     overflow: visible;
     pointer-events: none;
     z-index: 5;
@@ -146,6 +150,7 @@
     position: relative;
     min-width: 0;
     z-index: 2;
+    text-align: left;
 }
 
 .aad-flow-node__text strong {

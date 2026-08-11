@@ -6,8 +6,7 @@
             class="brand"
             aria-label="AguilArt Design"
         >
-            <span class="brand-symbol">A</span>
-            <span class="brand-name">AguilArt Design</span>
+            <span class="brand-logo" aria-hidden="true"></span>
         </a>
 
 
@@ -101,9 +100,6 @@
         position: fixed;
         inset: 0 0 auto;
         z-index: 50;
-
-        border-bottom: 1px solid transparent;
-
         transition:
             background-color 0.3s ease,
             border-color 0.3s ease,
@@ -113,7 +109,6 @@
 
     .header.is-scrolled {
         background: var(--header-bg);
-        border-color: var(--border);
         backdrop-filter: blur(18px);
         -webkit-backdrop-filter: blur(18px);
     }
@@ -136,41 +131,22 @@
         display: inline-flex;
         align-items: center;
 
-        gap: 11px;
-
-        font-size: 14px;
-        font-weight: 700;
-
         position: relative;
         z-index: 2;
     }
 
 
-    .brand-symbol {
-        width: 35px;
-        height: 35px;
+    .brand-logo {
+        display: block;
+        width: 150px;
+        aspect-ratio: 509.43 / 145.18;
 
-        display: grid;
-        place-items: center;
+        background-color: var(--text);
 
-        color: var(--brand-text);
-        background: var(--brand-bg);
+        -webkit-mask: url("/media/Logo.svg") center / contain no-repeat;
+        mask: url("/media/Logo.svg") center / contain no-repeat;
 
-        border-radius: 10px;
-
-        font-size: 16px;
-        font-weight: 800;
-
-        transition:
-            color var(--transition-theme),
-            background-color var(--transition-theme);
-    }
-
-
-    .brand-name {
-        color: var(--text);
-
-        transition: color var(--transition-theme);
+        transition: background-color var(--transition-theme);
     }
 
 
@@ -444,8 +420,8 @@
 
     @media (max-width: 480px) {
 
-        .brand-name {
-            font-size: 13px;
+        .brand-logo {
+            width: 136px;
         }
 
     }

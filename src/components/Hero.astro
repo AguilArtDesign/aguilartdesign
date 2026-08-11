@@ -15,7 +15,10 @@ import DigitalFlow from "./DigitalFlow.astro";
         <h1>
             Soluciones digitales construidas
 
-            <span> sobre WordPress. </span>
+            <span class="hero-title-line">
+                <span class="hero-title-lead">sobre&nbsp;</span>
+                <span class="hero-title-wordpress">WordPress</span>
+            </span>
         </h1>
 
         <p class="hero-description">
@@ -190,10 +193,41 @@ import DigitalFlow from "./DigitalFlow.astro";
         transition: color var(--transition-theme);
     }
 
-    h1 > span {
+    .hero-title-line {
         display: block;
 
+        color: inherit;
+    }
+
+    .hero-title-lead {
+        color: var(--text);
+
+        transition: color var(--transition-theme);
+    }
+
+    .hero-title-wordpress {
+        display: inline-block;
+
+        padding-inline-end: 0.06em;
+        margin-inline-end: -0.06em;
+
         color: var(--hero-title-secondary);
+
+        background-image: linear-gradient(
+            105deg,
+            var(--hero-title-secondary) 0%,
+            var(--hero-title-secondary) 38%,
+            var(--hero-title-highlight) 50%,
+            var(--hero-title-secondary) 62%,
+            var(--hero-title-secondary) 100%
+        );
+        background-position: 100% 50%;
+        background-size: 250% 100%;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        animation: wordpress-shimmer 4.5s ease-in-out infinite alternate;
 
         transition: color var(--transition-theme);
     }
@@ -322,6 +356,16 @@ import DigitalFlow from "./DigitalFlow.astro";
         }
     }
 
+    @keyframes wordpress-shimmer {
+        from {
+            background-position: 100% 50%;
+        }
+
+        to {
+            background-position: 0% 50%;
+        }
+    }
+
     @keyframes eyebrow-pulse {
         0% {
             box-shadow:
@@ -436,6 +480,13 @@ import DigitalFlow from "./DigitalFlow.astro";
 
     @media (prefers-reduced-motion: reduce) {
         .eyebrow-dot {
+            animation: none;
+        }
+
+        .hero-title-wordpress {
+            background: none;
+            color: var(--hero-title-secondary);
+            -webkit-text-fill-color: currentColor;
             animation: none;
         }
 

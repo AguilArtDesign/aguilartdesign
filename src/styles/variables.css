@@ -41,6 +41,7 @@ html[data-theme="dark"] {
     --hero-light: #ffffff;
 
     --hero-title-secondary: #777777;
+    --hero-title-highlight: #d0d0d0;
 
     --eyebrow-bg: rgba(255, 255, 255, 0.025);
     --eyebrow-text: #b0b0b0;
@@ -121,6 +122,7 @@ html[data-theme="light"] {
     --hero-light: #000000;
 
     --hero-title-secondary: #777777;
+    --hero-title-highlight: #b0b0b0;
 
     --eyebrow-bg: rgba(0, 0, 0, 0.025);
     --eyebrow-text: #5f5f5f;

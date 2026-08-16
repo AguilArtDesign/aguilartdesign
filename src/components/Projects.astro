@@ -1,0 +1,698 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+---
+
+<section
+    class="section projects"
+    id="proyectos"
+>
+    <div class="container">
+
+        <SectionHeading
+            label="Proyectos"
+            description="Mockups demostrativos para visualizar la dirección de los casos de estudio dentro de la landing."
+        >
+            <h2 aria-label="Soluciones pensadas para necesidades reales.">
+                Soluciones pensadas<br />
+                <span>para necesidades reales.</span>
+            </h2>
+        </SectionHeading>
+
+
+        <div class="project-grid">
+
+            <!-- E-commerce -->
+            <article class="project-card project-card--wide reveal">
+
+                <div class="project-visual store-preview" aria-hidden="true">
+
+                    <div class="browser">
+
+                        <div class="browser-bar">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <div class="browser-body">
+
+                            <div class="browser-sidebar"></div>
+
+                            <div class="browser-content">
+
+                                <div class="browser-title"></div>
+
+                                <div class="product-grid">
+                                    <i></i>
+                                    <i></i>
+                                    <i></i>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project-meta">
+
+                    <div>
+                        <span>E-commerce</span>
+
+                        <h3>
+                            Experiencias de compra personalizadas
+                        </h3>
+                    </div>
+
+                    <p>
+                        WooCommerce · UX/UI · Integraciones
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- Data -->
+            <article class="project-card reveal delay-1">
+
+                <div class="project-visual dashboard-preview" aria-hidden="true">
+
+                    <div class="dashboard">
+
+                        <div class="dashboard-top"></div>
+
+                        <div class="dashboard-chart"></div>
+
+                        <div class="dashboard-cards">
+                            <i></i>
+                            <i></i>
+                            <i></i>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project-meta">
+
+                    <div>
+                        <span>Datos</span>
+
+                        <h3>
+                            Paneles e integraciones
+                        </h3>
+                    </div>
+
+                    <p>
+                        API · WordPress · MySQL
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- Automation -->
+            <article class="project-card reveal delay-2">
+
+                <div class="project-visual automation-preview" aria-hidden="true">
+
+                    <div class="automation-map">
+                        <i>WP</i>
+                        <span></span>
+                        <i>n8n</i>
+                        <span></span>
+                        <i>API</i>
+                    </div>
+
+                </div>
+
+
+                <div class="project-meta">
+
+                    <div>
+                        <span>Automatización</span>
+
+                        <h3>
+                            Flujos conectados
+                        </h3>
+                    </div>
+
+                    <p>
+                        n8n · Webhooks · APIs
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
+
+<style>
+    .project-grid {
+        display: grid;
+
+        grid-template-columns:
+            1.18fr
+            0.82fr;
+
+        gap: 16px;
+    }
+
+
+    .project-card {
+        overflow: hidden;
+
+        background:
+            var(--project-card-bg);
+
+        border:
+            1px solid
+            var(--border);
+
+        border-radius:
+            var(--radius-md);
+
+        transition:
+            background-color var(--transition-theme),
+            border-color 0.25s ease,
+            transform 0.25s ease;
+    }
+
+
+    .project-card:hover {
+        transform:
+            translateY(-4px);
+
+        border-color:
+            var(--border-light);
+    }
+
+
+    .project-card--wide {
+        grid-row:
+            span 2;
+    }
+
+
+    /* =====================================================
+       VISUAL
+       ===================================================== */
+
+    .project-visual {
+        min-height: 292px;
+
+        display: grid;
+        place-items: center;
+
+        padding: 34px;
+
+        background:
+            radial-gradient(
+                circle at 50% 10%,
+                var(--project-visual-glow),
+                transparent 40%
+            ),
+            var(--project-visual-bg);
+
+        border-bottom:
+            1px solid
+            var(--border);
+
+        transition:
+            background-color var(--transition-theme),
+            border-color var(--transition-theme);
+    }
+
+
+    .project-card--wide .project-visual {
+        min-height: 560px;
+    }
+
+
+    /* =====================================================
+       BROWSER
+       ===================================================== */
+
+    .browser {
+        width: 88%;
+        height: 365px;
+
+        overflow: hidden;
+
+        background:
+            var(--project-browser-bg);
+
+        border:
+            1px solid
+            var(--project-browser-border);
+
+        border-radius: 17px;
+
+        box-shadow:
+            0 36px 80px
+            var(--project-browser-shadow);
+
+        transform:
+            perspective(1200px)
+            rotateX(3deg)
+            rotateY(-4deg);
+
+        transition:
+            background-color var(--transition-theme),
+            border-color var(--transition-theme),
+            box-shadow var(--transition-theme);
+    }
+
+
+    .browser-bar {
+        height: 36px;
+
+        display: flex;
+        align-items: center;
+
+        gap: 6px;
+
+        padding: 0 12px;
+
+        border-bottom:
+            1px solid
+            var(--project-ui-border);
+    }
+
+
+    .browser-bar span {
+        width: 6px;
+        height: 6px;
+
+        background:
+            var(--project-ui-line);
+
+        border-radius: 50%;
+    }
+
+
+    .browser-body {
+        height:
+            calc(100% - 36px);
+
+        display: grid;
+
+        grid-template-columns:
+            82px 1fr;
+    }
+
+
+    .browser-sidebar {
+        background:
+            var(--project-ui-bg);
+
+        border-right:
+            1px solid
+            var(--project-ui-border);
+    }
+
+
+    .browser-content {
+        padding: 34px;
+    }
+
+
+    .browser-title {
+        width: 48%;
+        height: 12px;
+
+        margin-bottom: 34px;
+
+        background:
+            var(--project-ui-line);
+
+        border-radius: 999px;
+    }
+
+
+    .product-grid {
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap: 12px;
+    }
+
+
+    .product-grid i {
+        display: block;
+
+        aspect-ratio: 0.78;
+
+        background:
+            linear-gradient(
+                145deg,
+                var(--project-ui-bg-soft),
+                var(--project-ui-bg)
+            );
+
+        border:
+            1px solid
+            var(--project-ui-border);
+
+        border-radius: 10px;
+    }
+
+
+    /* =====================================================
+       DASHBOARD
+       ===================================================== */
+
+    .dashboard {
+        width: 82%;
+
+        padding: 20px;
+
+        background:
+            var(--project-browser-bg);
+
+        border:
+            1px solid
+            var(--project-browser-border);
+
+        border-radius: 16px;
+
+        box-shadow:
+            0 26px 55px
+            var(--project-browser-shadow);
+
+        transform:
+            perspective(1000px)
+            rotateX(3deg)
+            rotateY(4deg);
+    }
+
+
+    .dashboard-top {
+        width: 42%;
+        height: 10px;
+
+        margin-bottom: 22px;
+
+        background:
+            var(--project-ui-line);
+
+        border-radius: 999px;
+    }
+
+
+    .dashboard-chart {
+        height: 105px;
+
+        background:
+            repeating-linear-gradient(
+                to right,
+                transparent 0,
+                transparent 28px,
+                var(--project-ui-border) 29px
+            ),
+            repeating-linear-gradient(
+                to bottom,
+                transparent 0,
+                transparent 24px,
+                var(--project-ui-border) 25px
+            );
+
+        border:
+            1px solid
+            var(--project-ui-border);
+
+        border-radius: 9px;
+    }
+
+
+    .dashboard-cards {
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap: 8px;
+
+        margin-top: 10px;
+    }
+
+
+    .dashboard-cards i {
+        height: 36px;
+
+        background:
+            var(--project-ui-bg);
+
+        border:
+            1px solid
+            var(--project-ui-border);
+
+        border-radius: 7px;
+    }
+
+
+    /* =====================================================
+       AUTOMATION
+       ===================================================== */
+
+    .automation-map {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        width: 90%;
+    }
+
+
+    .automation-map i {
+        width: 58px;
+        height: 58px;
+
+        display: grid;
+        place-items: center;
+
+        flex: 0 0 auto;
+
+        color: var(--text);
+
+        background:
+            var(--project-ui-bg);
+
+        border:
+            1px solid
+            var(--project-ui-border);
+
+        border-radius: 14px;
+
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 700;
+    }
+
+
+    .automation-map span {
+        position: relative;
+
+        flex: 1;
+
+        height: 1px;
+
+        background:
+            var(--project-ui-line);
+    }
+
+
+    .automation-map span::after {
+        content: "";
+
+        position: absolute;
+
+        top: 50%;
+        left: 50%;
+
+        width: 5px;
+        height: 5px;
+
+        transform:
+            translate(-50%, -50%);
+
+        background:
+            var(--text);
+
+        border-radius: 50%;
+
+        opacity: 0.55;
+    }
+
+
+    /* =====================================================
+       META
+       ===================================================== */
+
+    .project-meta {
+        display: flex;
+
+        align-items: flex-end;
+        justify-content: space-between;
+
+        gap: 30px;
+
+        padding: 26px;
+    }
+
+
+    .project-meta span {
+        color:
+            var(--project-label);
+
+        font-size: 9px;
+
+        text-transform: uppercase;
+
+        letter-spacing: 0.12em;
+    }
+
+
+    .project-meta h3 {
+        margin:
+            8px 0
+            0;
+
+        color:
+            var(--text);
+
+        font-size: 20px;
+
+        letter-spacing: -0.025em;
+    }
+
+
+    .project-meta > p {
+        margin: 0;
+
+        color:
+            var(--project-description);
+
+        font-size: 11px;
+
+        text-align: right;
+    }
+
+
+    /* =====================================================
+       TABLET
+       ===================================================== */
+
+    @media (max-width: 1080px) {
+
+        .project-grid {
+            grid-template-columns: 1fr;
+        }
+
+
+        .project-card--wide {
+            grid-row: auto;
+        }
+
+
+        .project-card--wide .project-visual {
+            min-height: 480px;
+        }
+
+
+        .browser {
+            max-width: 700px;
+        }
+
+    }
+
+
+    /* =====================================================
+       MOBILE
+       ===================================================== */
+
+    @media (max-width: 767px) {
+
+        .project-visual,
+        .project-card--wide .project-visual {
+            min-height: 340px;
+
+            padding: 22px;
+        }
+
+
+        .browser {
+            width: 100%;
+            height: 280px;
+
+            border-radius: 14px;
+
+            transform:
+                perspective(1200px)
+                rotateX(2deg)
+                rotateY(-2deg);
+        }
+
+
+        .browser-body {
+            grid-template-columns:
+                56px 1fr;
+        }
+
+
+        .browser-content {
+            padding: 22px 16px;
+        }
+
+
+        .product-grid {
+            gap: 7px;
+        }
+
+
+        .dashboard {
+            width: 100%;
+        }
+
+
+        .automation-map {
+            width: 100%;
+        }
+
+
+        .automation-map i {
+            width: 50px;
+            height: 50px;
+        }
+
+
+        .project-meta {
+            align-items: flex-start;
+            flex-direction: column;
+
+            gap: 14px;
+
+            padding: 22px;
+        }
+
+
+        .project-meta > p {
+            text-align: left;
+        }
+
+    }
+
+</style>

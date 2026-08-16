@@ -1,0 +1,490 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+---
+
+<section
+    class="section solutions"
+    id="soluciones"
+>
+    <div class="container">
+
+        <SectionHeading
+            label="Soluciones"
+            description="Cada proyecto se diseña alrededor de un objetivo concreto: vender, automatizar, integrar, administrar información o mejorar la operación digital."
+        >
+            <h2 aria-label="Más que una página web. Un sistema que trabaja para tu negocio.">
+                Más que una página web.<br />
+                <span>Un sistema que trabaja para tu negocio.</span>
+            </h2>
+        </SectionHeading>
+
+
+        <div class="solutions-grid">
+
+            <!-- WordPress -->
+            <article class="solution-card solution-card--large reveal">
+
+                <span class="card-index">01</span>
+
+                <div class="card-icon" aria-hidden="true">
+                    WP
+                </div>
+
+                <div class="card-content">
+
+                    <span class="card-kicker">
+                        Plataforma principal
+                    </span>
+
+                    <h3>
+                        WordPress a medida
+                    </h3>
+
+                    <p>
+                        Sitios corporativos, portales, directorios, membresías, LMS y soluciones
+                        personalizadas con una estructura flexible y administrable.
+                    </p>
+
+                    <ul>
+                        <li>Arquitectura personalizada</li>
+                        <li>Elementor y Crocoblock</li>
+                        <li>Contenido dinámico</li>
+                        <li>Funciones propias</li>
+                    </ul>
+
+                </div>
+
+                <div
+                    class="card-grid-pattern"
+                    aria-hidden="true"
+                ></div>
+
+            </article>
+
+
+            <!-- WooCommerce -->
+            <article class="solution-card reveal delay-1">
+
+                <span class="card-index">02</span>
+
+                <div class="card-icon" aria-hidden="true">
+                    WC
+                </div>
+
+                <span class="card-kicker">
+                    Comercio electrónico
+                </span>
+
+                <h3>
+                    WooCommerce avanzado
+                </h3>
+
+                <p>
+                    Tiendas adaptadas al catálogo, los pagos, el inventario y los procesos
+                    comerciales reales de cada empresa.
+                </p>
+
+                <a
+                    href="#contacto"
+                    class="card-link"
+                >
+                    Explorar solución
+                    <span aria-hidden="true">↗</span>
+                </a>
+
+            </article>
+
+
+            <!-- n8n -->
+            <article class="solution-card reveal delay-2">
+
+                <span class="card-index">03</span>
+
+                <div class="card-icon" aria-hidden="true">
+                    n8n
+                </div>
+
+                <span class="card-kicker">
+                    Procesos conectados
+                </span>
+
+                <h3>
+                    Automatización con n8n
+                </h3>
+
+                <p>
+                    Flujos que reducen tareas repetitivas, sincronizan información y conectan
+                    diferentes herramientas.
+                </p>
+
+                <a
+                    href="#contacto"
+                    class="card-link"
+                >
+                    Explorar solución
+                    <span aria-hidden="true">↗</span>
+                </a>
+
+            </article>
+
+
+            <!-- API -->
+            <article class="solution-card reveal delay-1">
+
+                <span class="card-index">04</span>
+
+                <div class="card-icon" aria-hidden="true">
+                    {`{ }`}
+                </div>
+
+                <span class="card-kicker">
+                    Conectividad
+                </span>
+
+                <h3>
+                    Integraciones API
+                </h3>
+
+                <p>
+                    WordPress conectado con inventarios, facturación, CRM, formularios,
+                    bases de datos y plataformas externas.
+                </p>
+
+                <a
+                    href="#contacto"
+                    class="card-link"
+                >
+                    Explorar solución
+                    <span aria-hidden="true">↗</span>
+                </a>
+
+            </article>
+
+
+            <!-- UX/UI -->
+            <article class="solution-card reveal delay-2">
+
+                <span class="card-index">05</span>
+
+                <div class="card-icon" aria-hidden="true">
+                    UI
+                </div>
+
+                <span class="card-kicker">
+                    Experiencia digital
+                </span>
+
+                <h3>
+                    Diseño UX/UI
+                </h3>
+
+                <p>
+                    Interfaces modernas, claras y coherentes que facilitan el uso y fortalecen
+                    la presencia digital de cada marca.
+                </p>
+
+                <a
+                    href="#contacto"
+                    class="card-link"
+                >
+                    Explorar solución
+                    <span aria-hidden="true">↗</span>
+                </a>
+
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
+
+<style>
+    .solutions-grid {
+        display: grid;
+
+        grid-template-columns:
+            1.08fr
+            0.92fr;
+
+        gap: 16px;
+    }
+
+
+    .solution-card {
+        position: relative;
+
+        min-height: 324px;
+
+        padding: 28px;
+
+        overflow: hidden;
+
+        background:
+            linear-gradient(
+                180deg,
+                var(--card-bg-overlay),
+                transparent
+            ),
+            var(--card-bg);
+
+        border: 1px solid var(--border);
+
+        border-radius: var(--radius-md);
+
+        transition:
+            transform 0.28s ease,
+            border-color 0.28s ease,
+            background 0.28s ease;
+    }
+
+
+    .solution-card:not(.solution-card--large) {
+        display: grid;
+        align-content: flex-start;
+    }
+
+
+    .solution-card:hover {
+        transform: translateY(-4px);
+
+        border-color: var(--card-border-hover);
+
+        background:
+            linear-gradient(
+                180deg,
+                var(--card-bg-overlay-hover),
+                transparent
+            ),
+            var(--surface-hover);
+    }
+
+
+    .solution-card--large {
+        grid-row: span 2;
+
+        min-height: 664px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+
+    /* =====================================================
+       CONTENT
+       ===================================================== */
+
+    .card-index {
+        color: var(--card-index);
+
+        font-size: 10px;
+    }
+
+
+    .card-icon {
+        width: 50px;
+        height: 50px;
+
+        display: grid;
+        place-items: center;
+
+        margin: 34px 0 22px;
+
+        color: var(--card-icon-text);
+        background: var(--card-icon-bg);
+
+        border: 1px solid var(--card-icon-border);
+        border-radius: 14px;
+
+        font-size: 12px;
+        font-weight: 750;
+
+        transition:
+            color var(--transition-theme),
+            background-color var(--transition-theme),
+            border-color var(--transition-theme);
+    }
+
+
+    .solution-card--large .card-icon {
+        margin-top: auto;
+    }
+
+
+    .card-kicker {
+        color: var(--card-kicker);
+
+        font-size: 10px;
+
+        text-transform: uppercase;
+
+        letter-spacing: 0.1em;
+    }
+
+
+    .solution-card h3 {
+        margin: 10px 0 12px;
+
+        color: var(--text);
+
+        font-size: 24px;
+
+        letter-spacing: -0.025em;
+    }
+
+
+    .solution-card p {
+        max-width: 530px;
+
+        margin: 0;
+
+        color: var(--card-description);
+
+        font-size: 13px;
+        line-height: 1.75;
+    }
+
+
+    /* =====================================================
+       WORDPRESS LIST
+       ===================================================== */
+
+    .solution-card ul {
+        max-width: 520px;
+
+        margin: 26px 0 0;
+        padding: 0;
+
+        list-style: none;
+    }
+
+
+    .solution-card li {
+        padding: 13px 0;
+
+        color: var(--card-list-text);
+
+        border-top:
+            1px solid
+            var(--card-list-border);
+
+        font-size: 12px;
+    }
+
+
+    /* =====================================================
+       LINKS
+       ===================================================== */
+
+    .card-link {
+        display: inline-flex;
+        align-items: center;
+
+        width: fit-content;
+
+        gap: 8px;
+
+        margin-top: 27px;
+
+        color: var(--card-link);
+
+        font-size: 12px;
+
+        transition:
+            color 0.2s ease,
+            gap 0.2s ease;
+    }
+
+
+    .card-link:hover {
+        color: var(--text);
+
+        gap: 11px;
+    }
+
+
+    /* =====================================================
+       GRID DECORATION
+       ===================================================== */
+
+    .card-grid-pattern {
+        position: absolute;
+
+        right: -68px;
+        bottom: -82px;
+
+        width: 330px;
+        height: 330px;
+
+        opacity: 0.26;
+
+        background-image:
+            linear-gradient(
+                var(--card-grid-line) 1px,
+                transparent 1px
+            ),
+            linear-gradient(
+                90deg,
+                var(--card-grid-line) 1px,
+                transparent 1px
+            );
+
+        background-size: 22px 22px;
+
+        border-radius: 50%;
+
+        -webkit-mask-image:
+            radial-gradient(
+                circle,
+                #000,
+                transparent 70%
+            );
+
+        mask-image:
+            radial-gradient(
+                circle,
+                #000,
+                transparent 70%
+            );
+
+        pointer-events: none;
+    }
+
+
+    /* =====================================================
+       TABLET / MOBILE
+       ===================================================== */
+
+    @media (max-width: 820px) {
+
+        .solutions-grid {
+            grid-template-columns: 1fr;
+        }
+
+
+        .solution-card--large {
+            grid-row: auto;
+
+            min-height: 540px;
+        }
+
+    }
+
+
+    @media (max-width: 767px) {
+
+        .solution-card {
+            min-height: 300px;
+
+            padding: 24px;
+        }
+
+
+        .solution-card--large {
+            min-height: 500px;
+        }
+
+    }
+
+</style>

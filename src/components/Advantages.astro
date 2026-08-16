@@ -1,0 +1,303 @@
+<section class="section advantages">
+    <div class="container">
+
+        <div class="advantage-panel grid-background-soft reveal">
+
+            <div class="advantage-copy">
+
+                <span class="section-label">
+                    AguilArt Design
+                </span>
+
+                <h2 aria-label="Menos herramientas aisladas. Más soluciones conectadas.">
+                    Menos herramientas aisladas.<br />
+                    <span>Más soluciones conectadas.</span>
+                </h2>
+
+            </div>
+
+
+            <ol class="advantage-list">
+
+                <li>
+                    <span aria-hidden="true">01</span>
+
+                    <div>
+                        <h3>Visión integral</h3>
+
+                        <p>
+                            Diseño, desarrollo, automatización e integración bajo una misma dirección.
+                        </p>
+                    </div>
+                </li>
+
+
+                <li>
+                    <span aria-hidden="true">02</span>
+
+                    <div>
+                        <h3>Soluciones administrables</h3>
+
+                        <p>
+                            Sistemas pensados para que el equipo pueda operarlos con claridad.
+                        </p>
+                    </div>
+                </li>
+
+
+                <li>
+                    <span aria-hidden="true">03</span>
+
+                    <div>
+                        <h3>Escalabilidad</h3>
+
+                        <p>
+                            Arquitecturas preparadas para crecer junto con las necesidades del negocio.
+                        </p>
+                    </div>
+                </li>
+
+
+                <li>
+                    <span aria-hidden="true">04</span>
+
+                    <div>
+                        <h3>Acompañamiento técnico</h3>
+
+                        <p>
+                            Una solución funcional y preparada, no una página aislada.
+                        </p>
+                    </div>
+                </li>
+
+            </ol>
+
+        </div>
+
+    </div>
+</section>
+
+
+<style>
+
+    .advantage-panel {
+        display: grid;
+
+        grid-template-columns:
+            0.85fr
+            1.15fr;
+
+        gap: 80px;
+
+        padding: 65px;
+
+        overflow: hidden;
+
+        background:
+            radial-gradient(
+                circle at 4% 0%,
+                var(--advantage-glow),
+                transparent 27%
+            ),
+            var(--advantage-bg);
+
+        border:
+            1px solid
+            var(--advantage-border);
+
+        border-radius:
+            var(--radius-lg);
+
+        transition:
+            background-color var(--transition-theme),
+            border-color var(--transition-theme);
+    }
+
+
+    /* =====================================================
+       COPY
+       ===================================================== */
+
+    .section-label {
+        display: block;
+
+        margin-bottom: 15px;
+
+        color:
+            var(--section-label);
+
+        font-size: 10px;
+        font-weight: 700;
+
+        letter-spacing: 0.16em;
+
+        text-transform: uppercase;
+    }
+
+
+    .advantage-copy h2 {
+        margin: 0;
+
+        color: var(--text);
+
+        font-size:
+            clamp(
+                38px,
+                5vw,
+                65px
+            );
+
+        line-height: 1.04;
+
+        letter-spacing: -0.05em;
+
+        transition:
+            color var(--transition-theme);
+    }
+
+
+    .advantage-copy h2 span {
+        color:
+            var(--heading-secondary);
+
+        transition:
+            color var(--transition-theme);
+    }
+
+
+    /* =====================================================
+       LIST
+       ===================================================== */
+
+    .advantage-list {
+        margin: 0;
+        padding: 0;
+
+        list-style: none;
+    }
+
+
+    .advantage-list li {
+        display: grid;
+
+        grid-template-columns:
+            38px 1fr;
+
+        gap: 13px;
+
+        padding:
+            21px 0;
+
+        border-bottom:
+            1px solid
+            var(--advantage-item-border);
+
+        transition:
+            border-color var(--transition-theme);
+    }
+
+
+    .advantage-list li:first-child {
+        padding-top: 0;
+    }
+
+
+    .advantage-list li:last-child {
+        padding-bottom: 0;
+
+        border-bottom: 0;
+    }
+
+
+    .advantage-list li > span {
+        color:
+            var(--advantage-index);
+
+        font-size: 10px;
+
+        transition:
+            color var(--transition-theme);
+    }
+
+
+    .advantage-list h3 {
+        margin:
+            0 0
+            8px;
+
+        color: var(--text);
+
+        font-size: 16px;
+
+        transition:
+            color var(--transition-theme);
+    }
+
+
+    .advantage-list p {
+        margin: 0;
+
+        color:
+            var(--advantage-description);
+
+        font-size: 12px;
+
+        line-height: 1.65;
+
+        transition:
+            color var(--transition-theme);
+    }
+
+
+    /* =====================================================
+       TABLET
+       ===================================================== */
+
+    @media (max-width: 1080px) {
+
+        .advantage-panel {
+            grid-template-columns: 1fr;
+
+            gap: 58px;
+
+            padding: 50px;
+        }
+
+
+        .advantage-copy h2 {
+            max-width: 760px;
+        }
+
+    }
+
+
+    /* =====================================================
+       MOBILE
+       ===================================================== */
+
+    @media (max-width: 767px) {
+
+        .advantage-panel {
+            gap: 44px;
+
+            padding:
+                34px 24px;
+
+            border-radius:
+                var(--radius-md);
+        }
+
+
+        .advantage-list li {
+            grid-template-columns:
+                30px 1fr;
+
+            gap: 10px;
+
+            padding:
+                18px 0;
+        }
+
+    }
+
+</style>

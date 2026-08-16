@@ -115,7 +115,7 @@
 
 
     .nav {
-        height: 84px;
+        height: var(--header-height);
 
         display: flex;
         align-items: center;
@@ -173,6 +173,11 @@
 
 
     .nav-links > a:hover {
+        color: var(--nav-text-hover);
+    }
+
+
+    .nav-links > a[aria-current="page"] {
         color: var(--nav-text-hover);
     }
 
@@ -348,7 +353,7 @@
         .nav-links {
             position: fixed;
 
-            top: 84px;
+            top: var(--header-height);
             right: 20px;
             left: 20px;
 
@@ -359,6 +364,10 @@
             gap: 0;
 
             padding: 12px;
+
+            max-height: calc(100dvh - var(--header-height) - 24px);
+            overflow-y: auto;
+            overscroll-behavior: contain;
 
             background: var(--header-mobile-bg);
 

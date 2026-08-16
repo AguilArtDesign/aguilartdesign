@@ -4,39 +4,89 @@ import "../styles/global.css";
 interface Props {
     title?: string;
     description?: string;
+    image?: string;
+    noindex?: boolean;
 }
 
 const {
-    title = "AguilArt Design — Soluciones sobre WordPress",
-    description = "AguilArt Design — WordPress, WooCommerce, automatizaciones con n8n e integraciones API."
+    title = "AguilArt Design — Soluciones digitales sobre WordPress",
+    description = "Diseñamos soluciones digitales a medida con WordPress, WooCommerce, automatizaciones n8n e integraciones API para empresas en Colombia y Latinoamérica.",
+    image,
+    noindex = false,
 } = Astro.props;
+
+const canonicalUrl = Astro.site
+    ? new URL(Astro.url.pathname, Astro.site).toString()
+    : undefined;
+
+const socialImage = image
+    ? Astro.site
+        ? new URL(image, Astro.site).toString()
+        : image
+    : undefined;
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    name: "AguilArt Design",
+    description,
+    areaServed: ["Colombia", "Latinoamérica"],
+    address: {
+        "@type": "PostalAddress",
+        addressLocality: "Medellín",
+        addressCountry: "CO",
+    },
+};
 ---
 
 <!doctype html>
-
 <html lang="es" data-theme="dark">
-
     <head>
-
         <meta charset="UTF-8" />
 
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <meta name="description" content={description} />
 
         <meta
-            name="description"
-            content={description}
+            name="robots"
+            content={
+                noindex
+                    ? "noindex, nofollow"
+                    : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+            }
         />
 
-        <meta
-            name="theme-color"
-            content="#000000"
-        />
+        <meta name="author" content="AguilArt Design" />
+        <meta name="application-name" content="AguilArt Design" />
+        <meta name="color-scheme" content="dark light" />
+
+        <meta name="theme-color" content="#000000" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="es_CO" />
+        <meta property="og:site_name" content="AguilArt Design" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+
+        <meta name="twitter:card" content={socialImage ? "summary_large_image" : "summary"} />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+
+        {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+        {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+        {socialImage && <meta property="og:image" content={socialImage} />}
+        {socialImage && <meta name="twitter:image" content={socialImage} />}
 
         <title>{title}</title>
 
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+
+        <script
+            type="application/ld+json"
+            set:html={JSON.stringify(structuredData)}
+        />
 
         <!-- Theme initialization -->
         <script is:inline>
@@ -46,67 +96,51 @@ const {
                 try {
                     const savedTheme = localStorage.getItem(STORAGE_KEY);
 
-                    const theme =
-                        savedTheme === "light"
-                            ? "light"
-                            : "dark";
+                    const theme = savedTheme === "light" ? "light" : "dark";
 
                     document.documentElement.dataset.theme = theme;
 
                     const meta = document.querySelector(
-                        'meta[name="theme-color"]'
+                        'meta[name="theme-color"]',
                     );
 
                     if (meta) {
                         meta.setAttribute(
                             "content",
-                            theme === "dark"
-                                ? "#000000"
-                                : "#ffffff"
+                            theme === "dark" ? "#000000" : "#ffffff",
                         );
                     }
-
                 } catch {
                     document.documentElement.dataset.theme = "dark";
                 }
             })();
         </script>
 
+        <!-- Inter variable font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
 
-        <!-- Inter -->
-        <link
-            rel="preconnect"
-            href="https://fonts.googleapis.com"
-        />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
         <link
-            rel="preconnect"
-            href="https://fonts.gstatic.com"
-            crossorigin
-        />
-
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&display=swap"
             rel="stylesheet"
         />
-
     </head>
 
-
     <body>
+        <a class="skip-link" href="#contenido-principal">
+            Saltar al contenido principal
+        </a>
 
-        <div
-            class="page-noise"
-            aria-hidden="true"
-        ></div>
+        <div class="page-noise" aria-hidden="true"></div>
 
         <slot />
-
 
         <script>
             import "../scripts/theme.js";
         </script>
-
+        <script>
+            import "../scripts/reveal.js";
+        </script>
     </body>
-
 </html>

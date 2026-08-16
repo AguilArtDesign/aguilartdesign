@@ -1,0 +1,332 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+---
+
+<section class="section technology" id="ecosistema">
+    <div class="container">
+
+        <SectionHeading
+            label="Ecosistema"
+            description="Herramientas maduras y compatibles entre sí para construir soluciones sostenibles, escalables y fáciles de administrar."
+        >
+            <h2 aria-label="Tecnología seleccionada para resolver, no para complicar.">
+                Tecnología seleccionada<br />
+                <span>para resolver, no para complicar.</span>
+            </h2>
+        </SectionHeading>
+
+
+        <div class="technology-grid">
+
+            <article class="technology-card reveal">
+                <span class="technology-type">Core</span>
+
+                <div class="technology-symbol" aria-hidden="true">
+                    W
+                </div>
+
+                <h3>WordPress</h3>
+
+                <p>
+                    La base flexible para construir sitios y sistemas personalizados.
+                </p>
+
+                <div class="technology-tags">
+                    <span>Elementor</span>
+                    <span>Crocoblock</span>
+                    <span>PHP</span>
+                </div>
+            </article>
+
+
+            <article class="technology-card reveal delay-1">
+                <span class="technology-type">
+                    Commerce
+                </span>
+
+                <div class="technology-symbol" aria-hidden="true">
+                    WC
+                </div>
+
+                <h3>WooCommerce</h3>
+
+                <p>
+                    Comercio electrónico adaptado a catálogos y operaciones reales.
+                </p>
+
+                <div class="technology-tags">
+                    <span>Checkout</span>
+                    <span>Pagos</span>
+                    <span>HPOS</span>
+                </div>
+            </article>
+
+
+            <article class="technology-card reveal delay-2">
+                <span class="technology-type">
+                    Automation
+                </span>
+
+                <div class="technology-symbol" aria-hidden="true">
+                    n8n
+                </div>
+
+                <h3>n8n</h3>
+
+                <p>
+                    Procesos automáticos para conectar plataformas y mantener datos sincronizados.
+                </p>
+
+                <div class="technology-tags">
+                    <span>Workflows</span>
+                    <span>Webhooks</span>
+                    <span>APIs</span>
+                </div>
+            </article>
+
+
+            <article class="technology-card reveal delay-3">
+                <span class="technology-type">
+                    Integration
+                </span>
+
+                <div class="technology-symbol" aria-hidden="true">
+                    {`{ }`}
+                </div>
+
+                <h3>REST API</h3>
+
+                <p>
+                    Conexiones seguras entre WordPress y servicios empresariales externos.
+                </p>
+
+                <div class="technology-tags">
+                    <span>JSON</span>
+                    <span>MySQL</span>
+                    <span>Auth</span>
+                </div>
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
+
+<style>
+    .technology-grid {
+        display: grid;
+
+        grid-template-columns:
+            repeat(4, 1fr);
+
+        gap: 14px;
+    }
+
+
+    .technology-card {
+        min-height: 360px;
+
+        padding: 27px;
+
+        background:
+            var(--technology-card-bg);
+
+        border:
+            1px solid
+            var(--border);
+
+        border-radius:
+            var(--radius-md);
+
+        transition:
+            background-color var(--transition-theme),
+            border-color 0.25s ease,
+            transform 0.25s ease;
+    }
+
+
+    .technology-card:hover {
+        transform: translateY(-4px);
+
+        border-color:
+            var(--border-light);
+    }
+
+
+    /* =====================================================
+       TYPE
+       ===================================================== */
+
+    .technology-type {
+        color:
+            var(--technology-type);
+
+        font-size: 9px;
+
+        text-transform: uppercase;
+
+        letter-spacing: 0.14em;
+    }
+
+
+    /* =====================================================
+       SYMBOL
+       ===================================================== */
+
+    .technology-symbol {
+        width: 50px;
+        height: 50px;
+
+        display: grid;
+        place-items: center;
+
+        margin:
+            53px 0
+            24px;
+
+        color:
+            var(--technology-symbol-text);
+
+        background:
+            var(--technology-symbol-bg);
+
+        border:
+            1px solid
+            var(--technology-symbol-border);
+
+        border-radius: 14px;
+
+        font-size: 12px;
+        font-weight: 700;
+
+        transition:
+            color var(--transition-theme),
+            background-color var(--transition-theme),
+            border-color var(--transition-theme);
+    }
+
+
+    /* =====================================================
+       CONTENT
+       ===================================================== */
+
+    .technology-card h3 {
+        margin:
+            0 0
+            12px;
+
+        color: var(--text);
+
+        font-size: 23px;
+
+        letter-spacing: -0.025em;
+
+        transition:
+            color var(--transition-theme);
+    }
+
+
+    .technology-card p {
+        min-height: 88px;
+
+        margin: 0;
+
+        color:
+            var(--technology-description);
+
+        font-size: 13px;
+
+        line-height: 1.7;
+
+        transition:
+            color var(--transition-theme);
+    }
+
+
+    /* =====================================================
+       TAGS
+       ===================================================== */
+
+    .technology-tags {
+        display: flex;
+
+        flex-wrap: wrap;
+
+        gap: 6px;
+
+        margin-top: 26px;
+    }
+
+
+    .technology-tags span {
+        padding:
+            7px 9px;
+
+        color:
+            var(--technology-tag-text);
+
+        background:
+            var(--technology-tag-bg);
+
+        border:
+            1px solid
+            var(--technology-tag-border);
+
+        border-radius: 7px;
+
+        font-size: 9px;
+
+        transition:
+            color var(--transition-theme),
+            background-color var(--transition-theme),
+            border-color var(--transition-theme);
+    }
+
+
+    /* =====================================================
+       TABLET
+       ===================================================== */
+
+    @media (max-width: 1080px) {
+
+        .technology-grid {
+            grid-template-columns:
+                repeat(2, 1fr);
+        }
+
+    }
+
+
+    /* =====================================================
+       MOBILE
+       ===================================================== */
+
+    @media (max-width: 767px) {
+
+        .technology-grid {
+            grid-template-columns: 1fr;
+        }
+
+
+        .technology-card {
+            min-height: auto;
+
+            padding: 24px;
+        }
+
+
+        .technology-symbol {
+            margin:
+                38px 0
+                22px;
+        }
+
+
+        .technology-card p {
+            min-height: auto;
+        }
+
+    }
+
+</style>

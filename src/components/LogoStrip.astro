@@ -1,0 +1,104 @@
+<section
+    class="logo-strip"
+    aria-label="Tecnologías con las que trabajamos"
+>
+    <ul class="container logo-strip__inner" tabindex="0" aria-label="Tecnologías; desplaza horizontalmente para ver todas">
+
+        <li>WordPress</li>
+        <li>WooCommerce</li>
+        <li>Elementor</li>
+        <li>Crocoblock</li>
+        <li>n8n</li>
+        <li>REST API</li>
+        <li>MySQL</li>
+
+    </ul>
+</section>
+
+
+<style>
+
+    .logo-strip {
+        overflow: hidden;
+
+        background: var(--logo-strip-bg);
+
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+
+        transition:
+            background-color var(--transition-theme),
+            border-color var(--transition-theme);
+    }
+
+
+    .logo-strip__inner {
+        min-height: 92px;
+
+        margin-block: 0;
+        padding-block: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 35px;
+
+        list-style: none;
+    }
+
+
+    .logo-strip li {
+        flex: 0 0 auto;
+
+        color: var(--logo-strip-text);
+
+        font-size: 13px;
+        font-weight: 650;
+
+        white-space: nowrap;
+
+        transition:
+            color 0.2s ease;
+    }
+
+
+    .logo-strip li:hover {
+        color: var(--logo-strip-text-hover);
+    }
+
+
+    @media (max-width: 1080px) {
+
+        .logo-strip__inner {
+            justify-content: flex-start;
+
+            overflow-x: auto;
+
+            scrollbar-width: none;
+        }
+
+
+        .logo-strip__inner::-webkit-scrollbar {
+            display: none;
+        }
+
+    }
+
+
+    @media (max-width: 767px) {
+
+        .logo-strip__inner {
+            min-height: 78px;
+
+            gap: 30px;
+        }
+
+
+        .logo-strip li {
+            font-size: 12px;
+        }
+
+    }
+
+</style>

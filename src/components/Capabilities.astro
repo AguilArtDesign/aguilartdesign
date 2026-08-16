@@ -1,0 +1,273 @@
+<section
+    class="section section-alt grid-background-soft capabilities"
+    id="capacidades"
+>
+    <div class="container capability-layout">
+
+        <div class="capability-copy reveal">
+
+            <span class="section-label">
+                Capacidades
+            </span>
+
+            <h2>
+                Una base flexible para construir soluciones diferentes.
+            </h2>
+
+            <p>
+                WordPress es el núcleo. El diseño, las integraciones y la automatización
+                permiten adaptarlo a cada operación.
+            </p>
+
+            <a
+                href="#contacto"
+                class="text-link"
+            >
+                Háblanos de tu proyecto
+                <span aria-hidden="true">↗</span>
+            </a>
+
+        </div>
+
+
+        <ul class="capability-tags reveal delay-1">
+
+            <li class="capability-pill">Landing Pages</li>
+            <li class="capability-pill">Sitios Corporativos</li>
+            <li class="capability-pill">E-commerce</li>
+            <li class="capability-pill">Portales de clientes</li>
+            <li class="capability-pill">LMS</li>
+            <li class="capability-pill">Membresías</li>
+            <li class="capability-pill">Directorios</li>
+            <li class="capability-pill">Reservas</li>
+            <li class="capability-pill">Dashboards</li>
+            <li class="capability-pill">Paneles administrativos</li>
+            <li class="capability-pill">Catálogos dinámicos</li>
+            <li class="capability-pill">Integraciones ERP</li>
+            <li class="capability-pill">Automatizaciones</li>
+            <li class="capability-pill">Webhooks</li>
+            <li class="capability-pill">Sincronización de datos</li>
+            <li class="capability-pill">Multidioma</li>
+            <li class="capability-pill">Multimoneda</li>
+            <li class="capability-pill">Funciones personalizadas</li>
+
+        </ul>
+
+    </div>
+</section>
+
+
+<style is:global>
+
+    .capability-layout {
+        display: grid;
+
+        grid-template-columns:
+            0.82fr
+            1.18fr;
+
+        gap: 90px;
+
+        align-items: start;
+    }
+
+
+    /* =====================================================
+       COPY
+       ===================================================== */
+
+    .section-label {
+        display: block;
+
+        margin-bottom: 15px;
+
+        color: var(--section-label);
+
+        font-size: 10px;
+        font-weight: 700;
+
+        letter-spacing: 0.16em;
+
+        text-transform: uppercase;
+    }
+
+
+    .capability-copy h2 {
+        max-width: 560px;
+
+        margin: 0;
+
+        color: var(--text);
+
+        font-size:
+            clamp(
+                38px,
+                5vw,
+                65px
+            );
+
+        line-height: 1.04;
+
+        letter-spacing: -0.05em;
+
+        transition: color var(--transition-theme);
+    }
+
+
+    .capability-copy p {
+        max-width: 510px;
+
+        margin:
+            26px 0
+            0;
+
+        color: var(--capability-description);
+
+        font-size: 14px;
+
+        line-height: 1.8;
+
+        transition: color var(--transition-theme);
+    }
+
+
+    /* =====================================================
+       LINK
+       ===================================================== */
+
+    .text-link {
+        display: inline-flex;
+        align-items: center;
+
+        gap: 9px;
+
+        margin-top: 18px;
+
+        color: var(--capability-link);
+
+        font-size: 13px;
+
+        transition:
+            color 0.2s ease,
+            gap 0.2s ease;
+    }
+
+
+    .text-link:hover {
+        color: var(--text);
+
+        gap: 12px;
+    }
+
+
+    /* =====================================================
+       TAGS
+       ===================================================== */
+
+    .capability-tags {
+        margin: 0;
+        padding: 0;
+
+        display: flex;
+
+        align-content: flex-start;
+        flex-wrap: wrap;
+
+        gap: 10px;
+
+        list-style: none;
+    }
+
+
+    .capability-pill {
+        display: inline-flex;
+        align-items: center;
+
+        min-height: 42px;
+
+        padding: 13px 16px;
+
+        color: var(--capability-tag-text);
+        background: var(--capability-tag-bg);
+
+        border:
+            1px solid
+            var(--capability-tag-border);
+
+        border-radius: 999px;
+
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 1;
+        white-space: nowrap;
+
+        transition:
+            color 0.2s ease,
+            border-color 0.2s ease,
+            background-color 0.2s ease;
+    }
+
+
+    .capability-pill:hover {
+        color: var(--capability-tag-text-hover);
+
+        background:
+            var(--capability-tag-bg-hover);
+
+        border-color:
+            var(--capability-tag-border-hover);
+    }
+
+
+    /* =====================================================
+       TABLET
+       ===================================================== */
+
+    @media (max-width: 1080px) {
+
+        .capability-layout {
+            grid-template-columns: 1fr;
+
+            gap: 58px;
+        }
+
+
+        .capability-copy h2 {
+            max-width: 760px;
+        }
+
+
+        .capability-copy p {
+            max-width: 650px;
+        }
+
+    }
+
+
+    /* =====================================================
+       MOBILE
+       ===================================================== */
+
+    @media (max-width: 767px) {
+
+        .capability-layout {
+            gap: 44px;
+        }
+
+
+        .capability-tags {
+            gap: 8px;
+        }
+
+
+        .capability-pill {
+            min-height: 38px;
+
+            padding: 11px 14px;
+
+            font-size: 11px;
+        }
+
+    }
+
+</style>

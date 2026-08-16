@@ -1,0 +1,533 @@
+<section
+    class="section contact-section grid-background"
+    id="contacto"
+>
+    <div
+        class="contact-light"
+        aria-hidden="true"
+    ></div>
+
+
+    <div class="container contact-grid">
+
+        <div class="contact-copy reveal">
+
+            <span class="section-label">
+                Hablemos
+            </span>
+
+            <h2>
+                ¿Tienes una idea, un proceso o un sistema que necesita funcionar mejor?
+            </h2>
+
+            <p>
+                Cuéntanos qué necesitas resolver y construiremos una solución digital
+                alineada con tu negocio.
+            </p>
+
+
+            <div class="contact-data">
+                <span>Medellín, Colombia</span>
+                <span>Proyectos en Colombia y Latinoamérica</span>
+            </div>
+
+        </div>
+
+
+        <form
+            class="contact-form reveal delay-1"
+            id="contactForm"
+            aria-describedby="contact-form-note"
+        >
+
+            <label for="contact-name">
+                <span>Nombre</span>
+
+                <input
+                    id="contact-name"
+                    type="text"
+                    name="name"
+                    placeholder="Tu nombre"
+                    autocomplete="name"
+                    required
+                />
+            </label>
+
+
+            <label for="contact-email">
+                <span>Correo</span>
+
+                <input
+                    id="contact-email"
+                    type="email"
+                    name="email"
+                    placeholder="correo@empresa.com"
+                    autocomplete="email"
+                    required
+                />
+            </label>
+
+
+            <label for="contact-company">
+                <span>Empresa</span>
+
+                <input
+                    id="contact-company"
+                    type="text"
+                    name="company"
+                    placeholder="Nombre de tu empresa"
+                    autocomplete="organization"
+                />
+            </label>
+
+
+            <label for="contact-message">
+                <span>¿Qué necesitas resolver?</span>
+
+                <textarea
+                    id="contact-message"
+                    name="message"
+                    rows="5"
+                    placeholder="Cuéntanos brevemente sobre tu proyecto"
+                    required
+                ></textarea>
+            </label>
+
+
+            <button
+                type="submit"
+                class="form-button"
+            >
+                Enviar solicitud
+
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+                    <path d="M5 12h14M13 6l6 6-6 6"></path>
+                </svg>
+            </button>
+
+
+            <small id="contact-form-note">
+                Formulario demostrativo para la maquetación.
+            </small>
+
+            <p
+                class="form-status"
+                data-form-status
+                role="status"
+                aria-live="polite"
+            ></p>
+
+        </form>
+
+    </div>
+</section>
+
+
+<style>
+    .contact-section {
+        position: relative;
+
+        overflow: hidden;
+
+        background:
+            var(--contact-bg);
+
+        border-top:
+            1px solid
+            var(--contact-border);
+
+        transition:
+            background-color var(--transition-theme),
+            border-color var(--transition-theme);
+    }
+
+
+    .contact-section::after {
+        content: "";
+
+        position: absolute;
+        inset: 0;
+
+        z-index: -3;
+
+        background:
+            radial-gradient(
+                circle at 15% 20%,
+                var(--contact-glow),
+                transparent 28%
+            ),
+            var(--contact-bg);
+    }
+
+
+    .contact-light {
+        position: absolute;
+
+        top: -320px;
+        left: -260px;
+
+        z-index: -1;
+
+        width: 700px;
+        height: 700px;
+
+        background:
+            var(--contact-light);
+
+        border-radius: 50%;
+
+        filter: blur(240px);
+
+        opacity: 0.045;
+
+        pointer-events: none;
+    }
+
+
+    .contact-grid {
+        display: grid;
+
+        grid-template-columns:
+            1fr
+            0.82fr;
+
+        gap: 90px;
+
+        align-items: flex-start;
+    }
+
+
+    /* =====================================================
+       COPY
+       ===================================================== */
+
+    .section-label {
+        display: block;
+
+        margin-bottom: 15px;
+
+        color:
+            var(--section-label);
+
+        font-size: 10px;
+        font-weight: 700;
+
+        letter-spacing: 0.16em;
+
+        text-transform: uppercase;
+    }
+
+
+    .contact-copy h2 {
+        max-width: 720px;
+
+        margin: 0;
+
+        color: var(--text);
+
+        font-size:
+            clamp(
+                38px,
+                5vw,
+                65px
+            );
+
+        line-height: 1.04;
+
+        letter-spacing: -0.05em;
+
+        transition:
+            color var(--transition-theme);
+    }
+
+
+    .contact-copy > p {
+        max-width: 570px;
+
+        margin:
+            28px 0
+            0;
+
+        color:
+            var(--contact-description);
+
+        font-size: 14px;
+
+        line-height: 1.8;
+
+        transition:
+            color var(--transition-theme);
+    }
+
+
+    .contact-data {
+        display: flex;
+        flex-direction: column;
+
+        gap: 8px;
+
+        margin-top: 38px;
+
+        color:
+            var(--contact-data);
+
+        font-size: 11px;
+
+        transition:
+            color var(--transition-theme);
+    }
+
+
+    /* =====================================================
+       FORM
+       ===================================================== */
+
+    .contact-form {
+        display: grid;
+
+        gap: 16px;
+
+        padding: 28px;
+
+        background:
+            var(--contact-form-bg);
+
+        border:
+            1px solid
+            var(--contact-form-border);
+
+        border-radius:
+            var(--radius-md);
+
+        transition:
+            background-color var(--transition-theme),
+            border-color var(--transition-theme);
+    }
+
+
+    .contact-form label {
+        display: grid;
+
+        gap: 8px;
+    }
+
+
+    .contact-form label > span {
+        color:
+            var(--contact-label);
+
+        font-size: 10px;
+
+        transition:
+            color var(--transition-theme);
+    }
+
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+
+        padding:
+            14px 15px;
+
+        color:
+            var(--contact-field-text);
+
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+
+        background:
+            var(--contact-field-bg);
+
+        border:
+            1px solid
+            var(--contact-field-border);
+
+        border-radius: 10px;
+
+        transition:
+            color var(--transition-theme),
+            background-color var(--transition-theme),
+            border-color 0.2s ease;
+    }
+
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+        color:
+            var(--contact-placeholder);
+    }
+
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+        border-color:
+            var(--contact-field-border-focus);
+    }
+
+
+    .contact-form input:focus-visible,
+    .contact-form textarea:focus-visible {
+        outline-color: var(--contact-field-border-focus);
+    }
+
+
+    .contact-form textarea {
+        resize: vertical;
+
+        min-height: 140px;
+    }
+
+
+    /* =====================================================
+       BUTTON
+       ===================================================== */
+
+    .form-button {
+        width: 100%;
+        min-height: 52px;
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 12px;
+
+        padding:
+            0 20px;
+
+        color:
+            var(--button-text);
+
+        background:
+            var(--button-bg);
+
+        border: 0;
+
+        border-radius:
+            var(--radius-sm);
+
+        font-size: 13px;
+        font-weight: 650;
+
+        cursor: pointer;
+
+        transition:
+            color var(--transition-theme),
+            background-color 0.22s ease,
+            transform 0.22s ease;
+    }
+
+
+    .form-button:hover {
+        transform:
+            translateY(-2px);
+    }
+
+
+    .form-button svg {
+        width: 18px;
+        height: 18px;
+
+        fill: none;
+
+        stroke: currentColor;
+
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+
+    .contact-form small {
+        color:
+            var(--contact-note);
+
+        font-size: 9px;
+
+        transition:
+            color var(--transition-theme);
+    }
+
+
+    .form-status {
+        min-height: 1.5em;
+        margin: 0;
+
+        color: var(--text-soft);
+
+        font-size: 11px;
+
+        transition: color var(--transition-theme);
+    }
+
+
+    /* =====================================================
+       TABLET
+       ===================================================== */
+
+    @media (max-width: 1080px) {
+
+        .contact-grid {
+            grid-template-columns: 1fr;
+
+            gap: 58px;
+        }
+
+
+        .contact-copy h2 {
+            max-width: 850px;
+        }
+
+
+        .contact-form {
+            max-width: 720px;
+        }
+
+    }
+
+
+    /* =====================================================
+       MOBILE
+       ===================================================== */
+
+    @media (max-width: 767px) {
+
+        .contact-grid {
+            gap: 44px;
+        }
+
+
+        .contact-form {
+            padding: 22px;
+        }
+
+
+        .contact-light {
+            top: -220px;
+            left: -320px;
+
+            width: 600px;
+            height: 600px;
+        }
+
+    }
+
+</style>
+
+<script>
+    const contactForm = document.querySelector("#contactForm");
+    const formStatus = document.querySelector("[data-form-status]");
+
+    contactForm?.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        if (formStatus) {
+            formStatus.textContent =
+                "Gracias. Este formulario es demostrativo y todavía no envía datos.";
+        }
+    });
+</script>
